@@ -10,6 +10,17 @@ __all__ = ['ICommand',  'Plugin']
 
 Plugin = plugnplay.Plugin
 
+
+_CONFIG_DIR = os.path.abspath(os.path.join(os.environ.get('HOME', '/tmp'), '.config/alfredo'))
+_CUSTOM_COMMANDS_DIR = os.path.join(_CONFIG_DIR, 'commands')
+if not os.path.exists(_CONFIG_DIR):
+    os.makedirs(_CONFIG_DIR)
+    os.makedirs(_CUSTOM_COMMANDS_DIR)
+
+
+plugnplay.set_plugin_dirs(_CUSTOM_COMMANDS_DIR)
+
+
 class ICommand(plugnplay.Interface):
 
   '''
