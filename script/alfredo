@@ -2,6 +2,13 @@
 #encoding: utf-8
 import os
 from alfredo.PyGtalkRobot import GtalkRobot
+from alfredo import ICommand
+
+commands = ICommand.implementors()
+print "Starting with {0} commands.".format(len(commands))
+for command in commands:
+    print "{0}: {1}".format(command.name(), command.help()[0])
+print ""
 
 
 bot = GtalkRobot()
